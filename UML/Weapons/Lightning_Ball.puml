@@ -1,0 +1,7 @@
+@startuml
+class Lightning_Ball {
+    + <<override>> Fire() : void
+    <<new>> Update() : void
+}
+Weapon <|-- Lightning_Ball
+@enduml

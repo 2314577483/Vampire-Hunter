@@ -1,0 +1,10 @@
+@startuml
+class Player1_BasicAttack_Projectile {
+    offset : float = 0
+    Start() : void
+    <<new>> Move(deltaTime:float) : void
+    <<new>> Update() : void
+}
+Projectile <|-- Player1_BasicAttack_Projectile
+Player1_BasicAttack_Projectile --> "player" GameObject
+@enduml

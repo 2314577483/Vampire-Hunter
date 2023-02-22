@@ -1,0 +1,8 @@
+@startuml
+class SettingMenu {
+    + GoToScene(sceneName1:string) : void
+    + SetVolume(volume:float) : void
+}
+MonoBehaviour <|-- SettingMenu
+SettingMenu --> "audioMixer" AudioMixer
+@enduml

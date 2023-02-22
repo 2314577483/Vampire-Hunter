@@ -1,0 +1,7 @@
+@startuml
+class EnemySpawner {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- EnemySpawner
+@enduml

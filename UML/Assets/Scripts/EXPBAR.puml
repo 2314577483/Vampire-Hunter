@@ -1,0 +1,15 @@
+@startuml
+class EXPBAR {
+    + level : int
+    + experience : float <<get>>
+    Start() : void
+    Update() : void
+    + EXPNeedToLevelUp(currentLevel:int) : int
+    + AddEXP(amount:int) : void
+    + DisplayLevel() : void
+    + LevelUp() : void
+}
+MonoBehaviour <|-- EXPBAR
+EXPBAR --> "playerLevel" TMP_Text
+EXPBAR --> "slider" Slider
+@enduml

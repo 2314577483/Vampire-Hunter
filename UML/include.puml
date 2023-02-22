@@ -1,0 +1,237 @@
+@startuml
+class Enemy_TEST {
+    + health : float = 5
+    + TakeDamage(damage:float) : float
+    Die() : void
+    Update() : void
+}
+MonoBehaviour <|-- Enemy_TEST
+class PlayerCharacter {
+    + baseDamage : float = 1
+    + baseSpeed : float = 10f
+    + maxWeapons : int = 3
+    + maxItems : int = 3
+    + baseHealth : float = 10
+    Start() : void
+    + GetPlayerDamage() : float
+}
+MonoBehaviour <|-- PlayerCharacter
+class MainMenu {
+    + GoToScene(sceneName:string) : void
+    + QuitApp() : void
+}
+MonoBehaviour <|-- MainMenu
+class SettingMenu {
+    + GoToScene(sceneName1:string) : void
+    + SetVolume(volume:float) : void
+}
+MonoBehaviour <|-- SettingMenu
+SettingMenu --> "audioMixer" AudioMixer
+class FollowPlayer {
+    LateUpdate() : void
+}
+MonoBehaviour <|-- FollowPlayer
+FollowPlayer --> "player" GameObject
+class CharacterSelectingMenu {
+}
+MonoBehaviour <|-- CharacterSelectingMenu
+class Enemy3 {
+    + moveSpeed : float = 5f
+    + setHealth(health:float) : void
+    + getHealth() : float
+    getMovement(player:Transform) : void
+    MoveEnemy(direction:Vector2) : void
+    AnimateEnemy(movement:Vector2) : void
+    + TakeDamage(damage:float) : float
+    + Die() : void
+    + Attack(player:Transform) : void
+}
+MonoBehaviour <|-- Enemy3
+Enemy3 --> "player" Transform
+class CharacterController2D {
+    speed : float = 2f
+    + moving : bool
+    Awake() : void
+    FixedUpdate() : void
+}
+MonoBehaviour <|-- CharacterController2D
+CharacterController2D --> "rigidbody2d" Rigidbody2D
+CharacterController2D --> "motionVector" Vector2
+CharacterController2D --> "lastMotionVector" Vector2
+CharacterController2D --> "animator" Animator
+class EXPBAR {
+    + level : int
+    + experience : float <<get>>
+    Start() : void
+    Update() : void
+    + EXPNeedToLevelUp(currentLevel:int) : int
+    + AddEXP(amount:int) : void
+    + DisplayLevel() : void
+    + LevelUp() : void
+}
+MonoBehaviour <|-- EXPBAR
+EXPBAR --> "playerLevel" TMP_Text
+EXPBAR --> "slider" Slider
+class HealthBar {
+    + maxHealth : float
+    + health : float
+    Start() : void
+    Update() : void
+    + TakeDamge(damage:float) : void
+    + Heal(healing:float) : void
+    + Die() : void
+}
+MonoBehaviour <|-- HealthBar
+HealthBar --> "healthbar" Slider
+class PlayerController {
+    + moveSpeed : float = 10f
+    moving : bool = false
+    Start() : void
+    + GetSpeed() : float
+    + SetSpeed(newSpeed:float) : void
+    Move(horiz:float, vert:float, deltaTime:float) : void
+    Update() : void
+}
+MonoBehaviour <|-- PlayerController
+PlayerController --> "animator" Animator
+class Player {
+    Start() : void
+    Update() : void
+    PlayerMoveKeyboard() : void
+}
+MonoBehaviour <|-- Player
+Player --> "myBody" Rigidbody2D
+class Enemy2 {
+    + moveSpeed : float = 1f
+    + setHealth(health:float) : void
+    + getHealth() : float
+    getMovement(player:Transform) : void
+    MoveEnemy(direction:Vector2) : void
+    AnimateEnemy(movement:Vector2) : void
+    + TakeDamage(damage:float) : float
+    + Die() : void
+    + Attack(player:Transform) : void
+}
+MonoBehaviour <|-- Enemy2
+Enemy2 --> "player" Transform
+class EnemySpawner {
+    Start() : void
+    Update() : void
+}
+MonoBehaviour <|-- EnemySpawner
+class Enemy {
+    + moveSpeed : float = 5f
+    + setHealth(health:float) : void
+    + getHealth() : float
+    getMovement(player:Transform) : void
+    MoveEnemy(direction:Vector2) : void
+    AnimateEnemy(movement:Vector2) : void
+    + TakeDamage(damage:float) : float
+    + Die() : void
+    + Attack(player:Transform) : void
+}
+MonoBehaviour <|-- Enemy
+Enemy --> "player" Transform
+class Timer {
+    Update() : void
+    DisplayTime() : void
+    + StartTimer() : void
+    + StopTimer() : void
+    + ResetTimer() : void
+}
+MonoBehaviour <|-- Timer
+Timer --> "textTimer" TMP_Text
+class Lightning_Ball {
+    + <<override>> Fire() : void
+    <<new>> Update() : void
+}
+Weapon <|-- Lightning_Ball
+class Player3_BasicAttack_Projectile {
+    colliderOriginalRadius : float
+    doFind : bool = true
+    found : bool = false
+    movingToTarget : bool = false
+    maxSearchTime : float = 0.5f
+    currSearchTime : float = 0
+    timeTillNextSearch : float = 0
+    Start() : void
+    + Found(other:Collider2D) : void
+    FindNearestEnemy() : void
+    <<new>> Move() : void
+    <<new>> Update() : void
+}
+Projectile <|-- Player3_BasicAttack_Projectile
+Player3_BasicAttack_Projectile --> "collider" CircleCollider2D
+Player3_BasicAttack_Projectile --> "target" GameObject
+class Player1_BasicAttack_Projectile {
+    offset : float = 0
+    Start() : void
+    <<new>> Move(deltaTime:float) : void
+    <<new>> Update() : void
+}
+Projectile <|-- Player1_BasicAttack_Projectile
+Player1_BasicAttack_Projectile --> "player" GameObject
+class Lightning_Ball_Projectile {
+    offset : float = 0
+    Start() : void
+    grow : bool = false
+    timeSinceFlip : float = 0f
+    <<new>> Move(deltaTime:float) : void
+    <<new>> Update() : void
+}
+Projectile <|-- Lightning_Ball_Projectile
+class Weapon {
+    + <<virtual>> Fire() : void
+    + AddDamage(amount:float) : void
+}
+MonoBehaviour <|-- Weapon
+Weapon --> "player" GameObject
+Weapon --> "projectile" Projectile
+class Player2_BasicAttack {
+}
+Weapon <|-- Player2_BasicAttack
+class Projectile {
+    + lifeTime : float
+    + SetStats(projDamage:float) : void
+}
+MonoBehaviour <|-- Projectile
+Projectile --> "weapon" Weapon
+class Player2_BasicAttack_Projectile {
+    hitTime : float = 0.3f
+    currHitTime : float = 0
+    Start() : void
+    <<new>> OnTriggerEnter2D(other:Collider2D) : void
+    OnTriggerExit2D(other:Collider2D) : void
+    Attack() : void
+    <<new>> Update() : void
+}
+class "List`1"<T> {
+}
+Projectile <|-- Player2_BasicAttack_Projectile
+Player2_BasicAttack_Projectile --> "player" GameObject
+Player2_BasicAttack_Projectile --> "animator" Animator
+Player2_BasicAttack_Projectile o-> "toHit<GameObject>" "List`1"
+class Weapon1 {
+    + <<override>> Fire() : void
+    <<new>> Update() : void
+}
+Weapon <|-- Weapon1
+class Player3_BasicAttack_Collider {
+}
+MonoBehaviour <|-- Player3_BasicAttack_Collider
+class Projectile1 {
+    Start() : void
+    <<new>> Update() : void
+}
+Projectile <|-- Projectile1
+class Player1_BasicAttack {
+    + <<override>> Fire() : void
+    <<new>> Update() : void
+}
+Weapon <|-- Player1_BasicAttack
+class Player3_BasicAttack {
+    + <<override>> Fire() : void
+    <<new>> Update() : void
+}
+Weapon <|-- Player3_BasicAttack
+@enduml

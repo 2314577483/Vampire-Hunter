@@ -1,0 +1,8 @@
+@startuml
+class Projectile {
+    + lifeTime : float
+    + SetStats(projDamage:float) : void
+}
+MonoBehaviour <|-- Projectile
+Projectile --> "weapon" Weapon
+@enduml

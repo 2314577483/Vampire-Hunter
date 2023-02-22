@@ -1,0 +1,5 @@
+@startuml
+class Player3_BasicAttack_Collider {
+}
+MonoBehaviour <|-- Player3_BasicAttack_Collider
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class Enemy_TEST {
+    + health : float = 5
+    + TakeDamage(damage:float) : float
+    Die() : void
+    Update() : void
+}
+MonoBehaviour <|-- Enemy_TEST
+@enduml

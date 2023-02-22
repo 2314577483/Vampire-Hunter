@@ -1,0 +1,15 @@
+@startuml
+class Enemy2 {
+    + moveSpeed : float = 1f
+    + setHealth(health:float) : void
+    + getHealth() : float
+    getMovement(player:Transform) : void
+    MoveEnemy(direction:Vector2) : void
+    AnimateEnemy(movement:Vector2) : void
+    + TakeDamage(damage:float) : float
+    + Die() : void
+    + Attack(player:Transform) : void
+}
+MonoBehaviour <|-- Enemy2
+Enemy2 --> "player" Transform
+@enduml

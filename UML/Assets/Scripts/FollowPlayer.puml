@@ -1,0 +1,7 @@
+@startuml
+class FollowPlayer {
+    LateUpdate() : void
+}
+MonoBehaviour <|-- FollowPlayer
+FollowPlayer --> "player" GameObject
+@enduml

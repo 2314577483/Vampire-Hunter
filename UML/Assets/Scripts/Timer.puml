@@ -1,0 +1,11 @@
+@startuml
+class Timer {
+    Update() : void
+    DisplayTime() : void
+    + StartTimer() : void
+    + StopTimer() : void
+    + ResetTimer() : void
+}
+MonoBehaviour <|-- Timer
+Timer --> "textTimer" TMP_Text
+@enduml

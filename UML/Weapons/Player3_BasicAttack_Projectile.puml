@@ -1,0 +1,19 @@
+@startuml
+class Player3_BasicAttack_Projectile {
+    colliderOriginalRadius : float
+    doFind : bool = true
+    found : bool = false
+    movingToTarget : bool = false
+    maxSearchTime : float = 0.5f
+    currSearchTime : float = 0
+    timeTillNextSearch : float = 0
+    Start() : void
+    + Found(other:Collider2D) : void
+    FindNearestEnemy() : void
+    <<new>> Move() : void
+    <<new>> Update() : void
+}
+Projectile <|-- Player3_BasicAttack_Projectile
+Player3_BasicAttack_Projectile --> "collider" CircleCollider2D
+Player3_BasicAttack_Projectile --> "target" GameObject
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+class CharacterController2D {
+    speed : float = 2f
+    + moving : bool
+    Awake() : void
+    FixedUpdate() : void
+}
+MonoBehaviour <|-- CharacterController2D
+CharacterController2D --> "rigidbody2d" Rigidbody2D
+CharacterController2D --> "motionVector" Vector2
+CharacterController2D --> "lastMotionVector" Vector2
+CharacterController2D --> "animator" Animator
+@enduml

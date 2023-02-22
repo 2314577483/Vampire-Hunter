@@ -1,0 +1,9 @@
+@startuml
+class Weapon {
+    + <<virtual>> Fire() : void
+    + AddDamage(amount:float) : void
+}
+MonoBehaviour <|-- Weapon
+Weapon --> "player" GameObject
+Weapon --> "projectile" Projectile
+@enduml

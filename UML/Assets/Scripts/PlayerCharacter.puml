@@ -1,0 +1,12 @@
+@startuml
+class PlayerCharacter {
+    + baseDamage : float = 1
+    + baseSpeed : float = 10f
+    + maxWeapons : int = 3
+    + maxItems : int = 3
+    + baseHealth : float = 10
+    Start() : void
+    + GetPlayerDamage() : float
+}
+MonoBehaviour <|-- PlayerCharacter
+@enduml

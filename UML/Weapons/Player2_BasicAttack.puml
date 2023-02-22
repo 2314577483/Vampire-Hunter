@@ -1,0 +1,5 @@
+@startuml
+class Player2_BasicAttack {
+}
+Weapon <|-- Player2_BasicAttack
+@enduml

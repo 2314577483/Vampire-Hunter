@@ -1,0 +1,11 @@
+@startuml
+class Lightning_Ball_Projectile {
+    offset : float = 0
+    Start() : void
+    grow : bool = false
+    timeSinceFlip : float = 0f
+    <<new>> Move(deltaTime:float) : void
+    <<new>> Update() : void
+}
+Projectile <|-- Lightning_Ball_Projectile
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+class Player2_BasicAttack_Projectile {
+    hitTime : float = 0.3f
+    currHitTime : float = 0
+    Start() : void
+    <<new>> OnTriggerEnter2D(other:Collider2D) : void
+    OnTriggerExit2D(other:Collider2D) : void
+    Attack() : void
+    <<new>> Update() : void
+}
+class "List`1"<T> {
+}
+Projectile <|-- Player2_BasicAttack_Projectile
+Player2_BasicAttack_Projectile --> "player" GameObject
+Player2_BasicAttack_Projectile --> "animator" Animator
+Player2_BasicAttack_Projectile o-> "toHit<GameObject>" "List`1"
+@enduml

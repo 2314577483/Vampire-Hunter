@@ -1,0 +1,7 @@
+@startuml
+class Player1_BasicAttack {
+    + <<override>> Fire() : void
+    <<new>> Update() : void
+}
+Weapon <|-- Player1_BasicAttack
+@enduml

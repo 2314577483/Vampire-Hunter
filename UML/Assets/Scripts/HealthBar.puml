@@ -1,0 +1,13 @@
+@startuml
+class HealthBar {
+    + maxHealth : float
+    + health : float
+    Start() : void
+    Update() : void
+    + TakeDamge(damage:float) : void
+    + Heal(healing:float) : void
+    + Die() : void
+}
+MonoBehaviour <|-- HealthBar
+HealthBar --> "healthbar" Slider
+@enduml

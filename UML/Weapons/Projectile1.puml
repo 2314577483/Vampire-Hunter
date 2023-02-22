@@ -1,0 +1,7 @@
+@startuml
+class Projectile1 {
+    Start() : void
+    <<new>> Update() : void
+}
+Projectile <|-- Projectile1
+@enduml

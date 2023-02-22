@@ -1,0 +1,9 @@
+@startuml
+class Player {
+    Start() : void
+    Update() : void
+    PlayerMoveKeyboard() : void
+}
+MonoBehaviour <|-- Player
+Player --> "myBody" Rigidbody2D
+@enduml

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="251px" preserveAspectRatio="none" style="width:227px;height:251px;" version="1.1" viewBox="0 0 227 251" width="227px" zoomAndPan="magnify"><defs><filter height="300%" id="f1tc11w2wjsbbs" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[7a7a4a3508f8788ec2c580063b5fd66e]
+class Lightning_Ball_Projectile--><rect fill="#FEFECE" filter="url(#f1tc11w2wjsbbs)" height="124.8281" id="Lightning_Ball_Projectile" style="stroke: #A80036; stroke-width: 1.5;" width="210" x="6" y="116"/><ellipse cx="34.05" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M37.0188,137.6406 Q36.4406,137.9375 35.8,138.0781 Q35.1594,138.2344 34.4563,138.2344 Q31.9562,138.2344 30.6281,136.5938 Q29.3156,134.9375 29.3156,131.8125 Q29.3156,128.6875 30.6281,127.0313 Q31.9562,125.375 34.4563,125.375 Q35.1594,125.375 35.8,125.5313 Q36.4563,125.6875 37.0188,125.9844 L37.0188,128.7031 Q36.3938,128.125 35.8,127.8594 Q35.2063,127.5781 34.5813,127.5781 Q33.2375,127.5781 32.55,128.6563 Q31.8625,129.7188 31.8625,131.8125 Q31.8625,133.9063 32.55,134.9844 Q33.2375,136.0469 34.5813,136.0469 Q35.2063,136.0469 35.8,135.7813 Q36.3938,135.5 37.0188,134.9219 L37.0188,137.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="149" x="50.95" y="136.1543">Lightning_Ball_Projectile</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="215" y1="148" y2="148"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="94" x="12" y="162.2104">offset : float = 0</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="109" x="12" y="175.0151">grow : bool = false</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="140" x="12" y="187.8198">timeSinceFlip : float = 0f</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="215" y1="194.4141" y2="194.4141"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="71" x="12" y="208.6245">Start() : void</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="198" x="12" y="221.4292">«new» Move(deltaTime:float) : void</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="124" x="12" y="234.2339">«new» Update() : void</text><!--MD5=[9e086ae7cb173547c374b8a4e58c7dec]
+class Projectile--><rect fill="#FEFECE" filter="url(#f1tc11w2wjsbbs)" height="48" id="Projectile" style="stroke: #A80036; stroke-width: 1.5;" width="90" x="66" y="8"/><ellipse cx="81" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M83.9688,29.6406 Q83.3906,29.9375 82.75,30.0781 Q82.1094,30.2344 81.4063,30.2344 Q78.9063,30.2344 77.5781,28.5938 Q76.2656,26.9375 76.2656,23.8125 Q76.2656,20.6875 77.5781,19.0313 Q78.9063,17.375 81.4063,17.375 Q82.1094,17.375 82.75,17.5313 Q83.4063,17.6875 83.9688,17.9844 L83.9688,20.7031 Q83.3438,20.125 82.75,19.8594 Q82.1563,19.5781 81.5313,19.5781 Q80.1875,19.5781 79.5,20.6563 Q78.8125,21.7188 78.8125,23.8125 Q78.8125,25.9063 79.5,26.9844 Q80.1875,28.0469 81.5313,28.0469 Q82.1563,28.0469 82.75,27.7813 Q83.3438,27.5 83.9688,26.9219 L83.9688,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="95" y="28.1543">Projectile</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="67" x2="155" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="67" x2="155" y1="48" y2="48"/><!--MD5=[7cc22d33d07adf67bb13898a02514d7c]
+reverse link Projectile to Lightning_Ball_Projectile--><path d="M111,76.67 C111,89.05 111,102.77 111,115.99 " fill="none" id="Projectile&lt;-Lightning_Ball_Projectile" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="104,76.22,111,56.22,118,76.22,104,76.22" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[27676ae037c4002d8f3201dbf648284f]
+@startuml
+class Lightning_Ball_Projectile {
+    offset : float = 0
+    Start() : void
+    grow : bool = false
+    timeSinceFlip : float = 0f
+    <<new>> Move(deltaTime:float) : void
+    <<new>> Update() : void
+}
+Projectile <|- - Lightning_Ball_Projectile
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 GMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.9+11-Ubuntu-0ubuntu1
+Operating System: Linux
+Default Encoding: ANSI_X3.4-1968
+Language: en
+Country: US
+--></g></svg>
