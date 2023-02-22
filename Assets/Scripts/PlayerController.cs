@@ -2,39 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 10f;
-    Animator animator;
+    [SerializeField] float speed = 10f;
+    private Rigidbody2D rigidbody2d;
+    private Vector2 lastMotionVector; 
+    private Vector2 motionVector;
+    private Animator anim;
+    private bool isMoving;
 
-    bool moving = false;
-
-    void Start() {
-        animator = GetComponent<Animator>();
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        rigidbody2d.gravityScale = 0; // ensure no gravity, our game is 2D
         gameObject.tag = "Player";
     }
 
-    public float GetSpeed() {return moveSpeed;}
-    public void SetSpeed(float newSpeed) {moveSpeed = newSpeed;}
-    
-    void Move(float horiz, float vert, float deltaTime) {
-	    transform.position += new Vector3(horiz * moveSpeed * deltaTime, vert * moveSpeed * deltaTime, 0);
-    } 
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float horiz = Input.GetAxis("Horizontal");
-        float vert = Input.GetAxis("Vertical");
+        // get 2d components, construct vector
+        float horiz = Input.GetAxisRaw("Horizontal");
+        float vert = Input.GetAxisRaw("Vertical");
+        motionVector = new Vector2(horiz, vert);
 
-        if (horiz != 0 || vert != 0) moving = true;
-        else moving = false;
+        // update animator
+        anim.SetFloat("horizontal", horiz);
 
-        if (horiz < 0) transform.eulerAngles = new Vector3(0, 180, 0);
-        else if (horiz > 0) transform.eulerAngles = new Vector3(0, 0, 0);
+        // for anims: ignore vertical if moving horizontally
+        if (horiz != 0) 
+            anim.SetFloat("vertical", 0.0f);
+        else 
+            anim.SetFloat("vertical", vert);
+            
+        isMoving = horiz != 0 || vert != 0;
+        anim.SetBool("isMoving", isMoving);
 
-        animator.SetBool("isMoving", moving);
+        // if player is moving, then save the vector and update animator
+        if (isMoving)
+        {
+            lastMotionVector = new Vector2(horiz, vert).normalized;
 
-        Move(horiz, vert, Time.deltaTime);
+            anim.SetFloat("lastHorizontal", horiz);
+            anim.SetFloat("lastVertical", vert);
+        }
+
+        Move();
+    }
+
+    private void Move()
+    {
+        // set object's velocity
+        rigidbody2d.velocity = motionVector * speed;
     }
 }
