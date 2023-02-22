@@ -1,13 +1,7 @@
 @startuml
 class PlayerController {
-    + moveSpeed : float = 10f
-    moving : bool = false
-    Start() : void
-    + GetSpeed() : float
-    + SetSpeed(newSpeed:float) : void
-    Move(horiz:float, vert:float, deltaTime:float) : void
-    Update() : void
+    speed : float = 10f
+    Awake() : void
 }
 MonoBehaviour <|-- PlayerController
-PlayerController --> "animator" Animator
 @enduml

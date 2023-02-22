@@ -4,7 +4,7 @@ class HealthBar {
     + health : float
     Start() : void
     Update() : void
-    + TakeDamge(damage:float) : void
+    + TakeDamage(damage:float) : void
     + Heal(healing:float) : void
     + Die() : void
 }

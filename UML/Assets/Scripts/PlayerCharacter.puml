@@ -4,9 +4,12 @@ class PlayerCharacter {
     + baseSpeed : float = 10f
     + maxWeapons : int = 3
     + maxItems : int = 3
-    + baseHealth : float = 10
+    + baseHealth : float = 100
     Start() : void
+    Update() : void
     + GetPlayerDamage() : float
+    + TakeDamage(damage:float) : void
+    + Die() : void
 }
 MonoBehaviour <|-- PlayerCharacter
 @enduml

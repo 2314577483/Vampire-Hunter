@@ -1,5 +1,6 @@
 @startuml
 class Timer {
+    Awake() : void
     Update() : void
     DisplayTime() : void
     + StartTimer() : void

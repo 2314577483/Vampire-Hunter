@@ -11,9 +11,12 @@ class PlayerCharacter {
     + baseSpeed : float = 10f
     + maxWeapons : int = 3
     + maxItems : int = 3
-    + baseHealth : float = 10
+    + baseHealth : float = 100
     Start() : void
+    Update() : void
     + GetPlayerDamage() : float
+    + TakeDamage(damage:float) : void
+    + Die() : void
 }
 MonoBehaviour <|-- PlayerCharacter
 class MainMenu {
@@ -48,17 +51,6 @@ class Enemy3 {
 }
 MonoBehaviour <|-- Enemy3
 Enemy3 --> "player" Transform
-class CharacterController2D {
-    speed : float = 2f
-    + moving : bool
-    Awake() : void
-    FixedUpdate() : void
-}
-MonoBehaviour <|-- CharacterController2D
-CharacterController2D --> "rigidbody2d" Rigidbody2D
-CharacterController2D --> "motionVector" Vector2
-CharacterController2D --> "lastMotionVector" Vector2
-CharacterController2D --> "animator" Animator
 class EXPBAR {
     + level : int
     + experience : float <<get>>
@@ -77,23 +69,17 @@ class HealthBar {
     + health : float
     Start() : void
     Update() : void
-    + TakeDamge(damage:float) : void
+    + TakeDamage(damage:float) : void
     + Heal(healing:float) : void
     + Die() : void
 }
 MonoBehaviour <|-- HealthBar
 HealthBar --> "healthbar" Slider
 class PlayerController {
-    + moveSpeed : float = 10f
-    moving : bool = false
-    Start() : void
-    + GetSpeed() : float
-    + SetSpeed(newSpeed:float) : void
-    Move(horiz:float, vert:float, deltaTime:float) : void
-    Update() : void
+    speed : float = 10f
+    Awake() : void
 }
 MonoBehaviour <|-- PlayerController
-PlayerController --> "animator" Animator
 class Player {
     Start() : void
     Update() : void
@@ -133,6 +119,7 @@ class Enemy {
 MonoBehaviour <|-- Enemy
 Enemy --> "player" Transform
 class Timer {
+    Awake() : void
     Update() : void
     DisplayTime() : void
     + StartTimer() : void
@@ -166,11 +153,10 @@ Player3_BasicAttack_Projectile --> "target" GameObject
 class Player1_BasicAttack_Projectile {
     offset : float = 0
     Start() : void
-    <<new>> Move(deltaTime:float) : void
+    <<new>> Move(deltaTime:float, horizontalVector:float) : void
     <<new>> Update() : void
 }
 Projectile <|-- Player1_BasicAttack_Projectile
-Player1_BasicAttack_Projectile --> "player" GameObject
 class Lightning_Ball_Projectile {
     offset : float = 0
     Start() : void
